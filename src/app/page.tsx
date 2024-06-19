@@ -1,8 +1,8 @@
-'use client'
 import Link from "next/link";
 import { Montserrat } from "next/font/google";
 import ImageSlideshow from "./components/ImageSlides";
-const montSerrat = Montserrat({ subsets: ["latin"] });
+
+const montSerrat = Montserrat({subsets: ["latin"]});
 
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
         </div>
         <div>
           <div className="text-white-300 text-2xl">
-            <h1 className={`text-4xl font-bold ${montSerrat} tracking-sm uppercase
+            <h1 className={`text-4xl font-bold ${montSerrat.className} tracking-sm uppercase
               bg-gradient-to-r from-orange-custom-300 to-orange-custom-400 bg-clip-text
               text-transparent mt-12% mb-6`
             }>
@@ -47,7 +47,7 @@ export default function Home() {
         </div>
       </header>
       <main>
-        <section className='flex flex-col text-white-300 text-2xl max-w-152 w-11/12 mb-28 mx-auto text-center'>
+        <section className='flex flex-col text-white-300 text-2xl max-w-152 w-11/12 mb-28 mt-16 mx-auto text-center'>
             <h2 className="text-4xl font-bold mb-10">
               How it works
             </h2>

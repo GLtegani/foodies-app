@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
 import "../app/globals.css";
 import MainHeader from "./components/MainHeader/MainHeader";
-import MainHeaderBackground from "./components/MainHeader/MainHeaderBg";
 
-const quicksand = Quicksand({ subsets: ["latin"] });
+const quicksand = Quicksand({
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: 'NextLevel Food',

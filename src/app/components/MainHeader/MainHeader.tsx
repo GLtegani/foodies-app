@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import logoImg from "../../../../assets/logo.png"
-import NavItem from "./NavItem";
 import { Montserrat } from "next/font/google";
 import MainHeaderBackground from "./MainHeaderBg";
+import NavLink from "./NavItem";
 
 const montSerrat = Montserrat({ subsets: ["latin"] });
 
-
 export default function MainHeader() {
+
    return (
       <>
          <MainHeaderBackground />
@@ -32,13 +32,13 @@ export default function MainHeader() {
             <nav>
                <ul className="list-none m-0 p-0 flex gap-6 text-xl">
                   <li>
-                     <NavItem 
+                     <NavLink
                         item="Browse Meals"
                         href="/meals" 
                      />
                   </li>
                   <li>
-                     <NavItem 
+                     <NavLink 
                         item="Foodies Community" 
                         href="/community"
                      />
