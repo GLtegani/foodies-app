@@ -1,20 +1,22 @@
+'use client'
 import Link from "next/link";
 import { Montserrat } from "next/font/google";
+import ImageSlideshow from "./components/ImageSlides";
 const montSerrat = Montserrat({ subsets: ["latin"] });
 
 
 export default function Home() {
   return (
     <>
-      <header className="flex gap-12 mt-12  mx-auto w-90% max-w-6xl">
+      <header className="flex gap-12 mt-12 mx-auto w-90% max-w-6xl">
         <div className="w-130 h-97">
-
+          <ImageSlideshow />
         </div>
         <div>
           <div className="text-white-300 text-2xl">
             <h1 className={`text-4xl font-bold ${montSerrat} tracking-sm uppercase
               bg-gradient-to-r from-orange-custom-300 to-orange-custom-400 bg-clip-text
-              text-transparent mb-3`
+              text-transparent mt-12% mb-6`
             }>
               NextLevel Food for NextLevel Foodies
             </h1>
@@ -22,7 +24,7 @@ export default function Home() {
               Taste & share food from all over the world.
             </p>
           </div>
-          <div className="text-2xl flex gap-4">
+          <div className="text-2xl flex gap-4 mt-7">
             <Link 
               href='/community'
               className="inline-block mt-4 py-2 pr-4 pl-0 rounded-lg 

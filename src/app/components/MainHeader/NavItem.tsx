@@ -1,10 +1,11 @@
 import Link from "next/link";
+import {LinkProps} from "next/link";
 
-interface NavItemProps {
+interface NavItemProps extends LinkProps {
    item: string
 }
 
-export default function NavItem({item}: NavItemProps) {
+export default function NavItem(props: NavItemProps) {
    return (
       <Link 
          className="
@@ -13,9 +14,9 @@ export default function NavItem({item}: NavItemProps) {
             hover:text-transparent hover:shadow-lg hover:shadow-orange-600
             active:bg-gradient-to-r active:from-orange-500 active:to-yellow-400 active:h-screen active:bg-clip-text
             active:text-transparent active:shadow-LG active:shadow-orange-600" 
-         href="/meals"
+         {...props}
       >
-         {item}
+         {props.item}
       </Link>
    )
 }

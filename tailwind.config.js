@@ -8,6 +8,7 @@ module.exports = {
       spacing: {
         '10%': '10%',
         '90%': '90%',
+        '12%': '12%',
         '97': '25rem',
         '130': '40rem',
         '152': '50rem',
@@ -22,10 +23,14 @@ module.exports = {
       },
       boxShadow: {
         'custom': '0 0 18px rgba(248, 190, 42, 0.8)',
+        'custom2': '0 0 0.5rem rgba(0, 0, 0, 0.5)',
       },
       letterSpacing: {
         'sm': '0.15rem'
-      }
+      },
+      rotate: {
+        '-5': 'rotate(-5deg)',
+      },
     },
   },
   plugins: [],

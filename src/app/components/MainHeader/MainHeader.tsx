@@ -32,10 +32,16 @@ export default function MainHeader() {
             <nav>
                <ul className="list-none m-0 p-0 flex gap-6 text-xl">
                   <li>
-                     <NavItem item="Browse Meals" />
+                     <NavItem 
+                        item="Browse Meals"
+                        href="/meals" 
+                     />
                   </li>
                   <li>
-                     <NavItem item="Foodies Community" />
+                     <NavItem 
+                        item="Foodies Community" 
+                        href="/community"
+                     />
                   </li>
                </ul>
             </nav>
