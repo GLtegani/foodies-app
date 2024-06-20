@@ -25,6 +25,8 @@ module.exports = {
         'orange-custom-600': '#2c1e19',
         'orange-custom-700': '#25200f',
         'orange-custom-800': '#cfa69b',
+        'orange-custom-900': '#6e6464',
+        'orange-custom-1000': '#13120f',
         'error': '#262626',
         'error-p': '#ddd8d8',
       },

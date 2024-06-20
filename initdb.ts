@@ -1,7 +1,7 @@
 const sql = require('better-sqlite3');
 const db = sql('meals.db');
 
-interface DummyMealsProps {
+export interface DummyMealsProps {
    title: string
    slug: string
    image: string
