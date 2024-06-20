@@ -1,8 +1,15 @@
 import Link from "next/link";
 import { Montserrat } from "next/font/google";
-import MealsGrid from "./components/MealsGrid";
+import MealsGrid, { MealsProps } from "./components/MealsGrid";
+import { getMeals } from "../lib/meals";
+import { Suspense } from "react";
 
 const montSerrat = Montserrat({subsets: ["latin"]});
+
+async function Meals() {
+   const meals = await getMeals() as MealsProps[];
+   return <MealsGrid meals={meals} />
+}
 
 export default function MealsPage() {
    return (
@@ -27,8 +34,8 @@ export default function MealsPage() {
                <Link 
                   href="/meals/share"
                   className="inline-block mt-4 py-2 px-4 rounded-lg transition-all duration-1000 
-                  ease-in-out bg-gradient-to-r from-orange-custom-300 to-orange-custom-200 text-white font-bold
-                  no-underline hover:from-orange-custom-500 hover:to-orange-custom-100
+                  ease-in-out bg-gradient-to-r from-orange-custom-300 to-orange-custom-200 text-white 
+                  font-bold no-underline hover:from-orange-custom-500 hover:to-orange-custom-100
                   "
                >
                   Share Your Favorite Recipe
@@ -36,7 +43,16 @@ export default function MealsPage() {
             </p>
          </header>
          <main className="main">
-            <MealsGrid meals={[]} />
+            <Suspense fallback={
+               <h2 
+                  className="text-center text-3xl animate-bounce ease-in-out text-white-300
+                  mt-16"
+               >
+                  Fetching meals...
+               </h2>
+            }>
+               <Meals />
+            </Suspense>
          </main>
       </>
    )

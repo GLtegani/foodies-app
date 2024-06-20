@@ -1,24 +1,24 @@
-import MealItem from "./MealItem"
+import MealItem, { MealItemProps } from "./MealItem"
 
-interface MealsProps {
+export interface MealsProps extends MealItemProps {
    id: string
 }
 
 interface MealsGridProps {
-   meals: MealsProps
+   meals: MealsProps[]
 }
 
 export default function MealsGrid({meals}: MealsGridProps) {
    return (
       <ul 
-         className="w-90% max-w-8xl grid grid-cols-[auto-fill] gap-20 min-w-80 flex-1
+         className="w-90% max-w-8xl grid grid-cols-3 gap-20 min-w-80
          my-8 mx-auto list-none p-0"
       >
-         {meals.map(meal => {
+         {meals.map((meal) => ( 
             <li key={meal.id}>
-               <MealItem {...meal}/>
+               <MealItem {...meal} />
             </li>
-         })}
+         ))}
       </ul>
    )
 }

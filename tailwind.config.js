@@ -25,6 +25,8 @@ module.exports = {
         'orange-custom-600': '#2c1e19',
         'orange-custom-700': '#25200f',
         'orange-custom-800': '#cfa69b',
+        'error': '#262626',
+        'error-p': '#ddd8d8',
       },
       boxShadow: {
         'custom': '0 0 18px rgba(248, 190, 42, 0.8)',

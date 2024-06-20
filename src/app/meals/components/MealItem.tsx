@@ -4,7 +4,7 @@ import { Montserrat } from "next/font/google";
 
 const montSerrat = Montserrat({subsets: ["latin"]});
 
-interface MealItemProps {
+export interface MealItemProps {
    title: string
    slug: string
    image: string
