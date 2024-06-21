@@ -18,11 +18,11 @@ interface SlugMealsProps {
 export default function MealDetailsPage({params}: SlugMealsProps) {
    const meal = getMeal(params.mealSlug) as DummyMealsProps
 
-   meal.instructions = meal.instructions.replace(/\n/g, '<br/>')
-
    if(!meal) {
       notFound()
    } else {
+      meal.instructions = meal.instructions.replace(/\n/g, '<br/>')
+
       return (
          <>
             <header className="flex py-8 px-4 gap-12 items-center justify-center mt-10">

@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Montserrat } from "next/font/google";
 import ImageSlideshow from "./components/ImageSlides";
+import { Montserrat } from "next/font/google";
 
 const montSerrat = Montserrat({subsets: ["latin"]});
 
