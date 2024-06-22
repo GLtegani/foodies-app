@@ -1,3 +1,4 @@
+import { shareMeal } from "@/app/lib/actions";
 import ImagePicker from "./components/ImagePicker";
 import InputForm from "./components/InputForm";
 import LabelForm from "./components/LabelForm";
@@ -19,7 +20,7 @@ export default function ShareMealPage() {
             <p>Or any other meal you feel needs sharing!</p>
          </header>
          <main className="w-90% max-w-6xl my-12 mx-auto text-white">
-            <form className="max-w-3xl">
+            <form className="max-w-3xl" action={shareMeal}>
                <div className="flex gap-4">
                   <p>
                      <LabelForm htmlFor="name">
@@ -61,7 +62,10 @@ export default function ShareMealPage() {
                      `}
                   ></textarea>
                </p>
-               <ImagePicker />
+               <ImagePicker 
+                  label="Your Image"
+                  name="image"
+               />
                <p className="text-right">
                   <button 
                      type="submit"
