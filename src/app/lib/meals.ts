@@ -2,7 +2,16 @@ import sql from 'better-sqlite3'
 import slugify from 'slugify'
 import xss from 'xss'
 import fs from 'node:fs'
-import { DummyMealsProps } from '../../../initdb'
+
+interface SaveMealProps {
+   title: string
+   slug?: string
+   image: File
+   summary: string
+   instructions: string
+   creator: string
+   creator_email: string
+}
 
 const db = sql('meals.db')
 
@@ -16,7 +25,7 @@ export function getMeal(slug: string) {
    return db.prepare('SELECT * FROM meals WHERE slug = ?').get(slug)
 }
 
-export async function saveMeal(meal: DummyMealsProps) {
+export async function saveMeal(meal: SaveMealProps) {
    meal.slug = slugify(meal.title, {lower: true})
    meal.instructions = xss(meal.instructions)
 
