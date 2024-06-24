@@ -14,7 +14,6 @@ export default function InputForm({type, id, name}: InputHTMLAttributes<HTMLInpu
             border-orange-custom-1200 bg-orange-custom-1300 text-xl ${montSerrat.className} 
             text-white focus:outline-orange-custom-1400 focus:bg-orange-custom-1500
          `} 
-         required
       />
    )
 }

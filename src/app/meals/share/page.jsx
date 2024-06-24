@@ -1,12 +1,18 @@
+'use client'
+
 import { shareMeal } from "@/app/lib/actions";
 import ImagePicker from "./components/ImagePicker";
 import InputForm from "./components/InputForm";
 import LabelForm from "./components/LabelForm";
 import { Montserrat } from "next/font/google";
+import MealsFormSubmit from "./components/MealsFormSubmit";
+import { useFormState } from "react-dom";
 
 const montSerrat = Montserrat({subsets: ["latin"]});
 
 export default function ShareMealPage() {
+   const [state, formAction] = useFormState(shareMeal, {message: null})
+
    return (
       <>
          <header className="mt-16 mx-auto mb-14 w-90% max-w-6xl text-white-300 text-2xl">
@@ -20,7 +26,7 @@ export default function ShareMealPage() {
             <p>Or any other meal you feel needs sharing!</p>
          </header>
          <main className="w-90% max-w-6xl my-12 mx-auto text-white">
-            <form className="max-w-3xl" action={shareMeal}>
+            <form className="max-w-3xl" action={formAction}>
                <div className="flex gap-4">
                   <p>
                      <LabelForm htmlFor="name">
@@ -67,18 +73,8 @@ export default function ShareMealPage() {
                   name="image"
                />
                <p className="text-right">
-                  <button 
-                     type="submit"
-                     
-                     className="border-0 py-3 px-8 bg-gradient-to-r from-orange-custom-300 
-                              to-orange-custom text-white rounded-sm cursor-pointer
-                              text-inherit text-xl shadow-custom5 hover:from-orange-custom-100
-                              hover:to-orange-custom-200 focus:from-orange-custom-100
-                              focus:to-orange-custom-200 disabled:bg-disabled disabled:text-disabled2
-                              disabled:cursor-not-allowed"
-                  >
-                     Share Meal
-                  </button>
+                  {state.message && <p>{state.message}</p>}
+                  <MealsFormSubmit />
                </p>
             </form>
          </main>

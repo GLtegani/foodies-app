@@ -41,7 +41,9 @@ export default function ImagePicker({label, name}: ImagePickerProps) {
          <div className="flex items-end gap-6 my-5">
             <div 
                className="w-40 h-40 border-2 border-solid border-button-image
-               flex justify-center items-center text-center text-button-image relative"
+               flex justify-center items-center text-center text-button-image relative
+               cursor-pointer"
+               onClick={handlePickClick}
             >
                {!pickedImage ? 
                   <p className="p-4">

@@ -12,7 +12,11 @@ interface ShareMealProps {
    creator_email: string
 }
 
-export const shareMeal = async (formData: FormData) => {
+const isInvalidText = (text: string) => {
+   return !text || text.trim() === ''
+}
+
+export const shareMeal = async (prevState: string, formData: FormData) => {
    const meal = {
       title: formData.get('title'),
       summary: formData.get('summary'),
@@ -20,8 +24,24 @@ export const shareMeal = async (formData: FormData) => {
       image: formData.get('image'),
       creator: formData.get('name'),
       creator_email: formData.get('email'),
+   } as ShareMealProps
+
+   if(
+      isInvalidText(meal.title) ||
+      isInvalidText(meal.summary) ||
+      isInvalidText(meal.instructions) ||
+      isInvalidText(meal.creator) || 
+      isInvalidText(meal.creator_email) ||
+      !meal.creator_email.includes('@') ||
+      !meal.image ||
+      meal.image.size === 0
+
+   ) {
+      return {
+         message: 'Invalid input.'
+      }
    }
 
-   await saveMeal(meal as ShareMealProps)
+   await saveMeal(meal)
    redirect('/meals')
 }
