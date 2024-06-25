@@ -2,6 +2,7 @@
 
 import { redirect } from "next/navigation"
 import { saveMeal } from "./meals"
+import { revalidatePath } from "next/cache"
 
 interface ShareMealProps {
    title: string
@@ -43,5 +44,6 @@ export const shareMeal = async (prevState: string, formData: FormData) => {
    }
 
    await saveMeal(meal)
+   revalidatePath('/meals')
    redirect('/meals')
 }

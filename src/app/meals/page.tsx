@@ -3,8 +3,15 @@ import { Montserrat } from "next/font/google";
 import MealsGrid, { MealsProps } from "./components/MealsGrid";
 import { getMeals } from "../lib/meals";
 import { Suspense } from "react";
+import { Metadata } from "next";
 
 const montSerrat = Montserrat({subsets: ["latin"]});
+
+export const metadata: Metadata = {
+   title: 'All Meals',
+   description: 'Browse the delicious meals shared by our vibrant community.',
+};
+ 
 
 async function Meals() {
    const meals = await getMeals() as MealsProps[];

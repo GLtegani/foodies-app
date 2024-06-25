@@ -6,6 +6,18 @@ import { notFound } from "next/navigation";
 
 const montSerrat = Montserrat({subsets: ["latin"]});
 
+export async function generateMetadata({params}: SlugMealsProps) {
+   const meal = getMeal(params.mealSlug) as DummyMealsProps
+
+   if(!meal) {
+      notFound()
+   } else {
+      return {
+         title: meal.title,
+         description: meal.summary,
+      }
+   }
+}
 interface SlugMealsAttributes {
    mealSlug: string
 }
@@ -47,7 +59,9 @@ export default function MealDetailsPage({params}: SlugMealsProps) {
                            href={`mailto:${meal.creator_email}`}
                            className="bg-gradient-to-r from-orange-custom-300 to-orange-custom-500
                            bg-clip-text text-transparent hover:shadow-custom"
-                        >{meal.creator}</a>
+                        >
+                           {meal.creator}
+                        </a>
                   </p>
    
                   <p className="text-2xl">
@@ -69,5 +83,4 @@ export default function MealDetailsPage({params}: SlugMealsProps) {
          </>
       )
    }
-
 }
